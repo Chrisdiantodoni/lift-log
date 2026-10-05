@@ -1,25 +1,23 @@
 # Lift Log
 
-Aplikasi gym HTML, CSS, dan JavaScript. Catatan disimpan di localStorage.
+HTML, CSS, JavaScript; tanpa npm atau database. Catatan tersimpan di localStorage.
 
 ## Jalankan lokal
-Ekstrak ZIP, lalu jalankan dari folder project:
+Ekstrak ZIP, buka terminal di folder lift-log, jalankan:
 
     python3 -m http.server 8080
 
-Buka http://localhost:8080. Tidak perlu npm atau database.
+Buka http://localhost:8080.
 
 ## Deploy Vercel
-Upload project ke repository GitHub, import ke Vercel, pilih Framework Preset: Other.
-Build Command: kosong. Output Directory: . (root project).
+Import repository yang berisi folder project. Root Directory: folder lift-log.
+Framework Preset: Other. Build Command: kosong. Output Directory: .
 
-## Deploy Netlify
-Drag folder berisi index.html ke Netlify Deploy.
+## Panduan gerakan
+Tombol Cara gerakan membuka foto posisi, langkah, dan link tutorial.
+Hanging Knee Raise memakai preview video Vimeo. Video dan link tutorial memerlukan internet.
+Foto tersimpan lokal di images/. Sumber: https://github.com/yuhonas/free-exercise-db (public domain).
 
-## File
-- index.html: halaman aplikasi
-- style.css: styling responsif
-- app.js: plan dan pencatatan latihan
-- favicon.svg: ikon
-
-Data terikat pada browser dan domain. Riwayat situs sebelumnya tidak otomatis pindah ke domain baru. Menghapus data browser menghapus riwayat. Google Fonts memerlukan internet; font sistem menjadi fallback.
+## Penyimpanan
+Data terikat browser dan domain. Data dari domain sebelumnya tidak otomatis berpindah.
+Menghapus data browser akan menghapus riwayat. Google Fonts memerlukan internet; tersedia font fallback.
