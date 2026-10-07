@@ -1,5 +1,5 @@
 const assert = require('node:assert/strict');
-const { normalizeDb, mergeDb, exerciseSummary, overloadSuggestion } = require('./storage.js');
+const { normalizeDb, mergeDb, exerciseSummary, overloadSuggestion, activitySummary } = require('./storage.js');
 
 const valid = { sessions: { '2026-10-07_0': { date: '2026-10-07', plan: 0, sets: [[{ kg: '50', reps: '8', done: true }]], notes: 'lama', finished: true } } };
 const normalized = normalizeDb(valid, [[1]]);
@@ -21,4 +21,5 @@ assert.equal(overloadSuggestion([{ kg: '50', reps: '10', done: true }, { kg: '50
 assert.equal(overloadSuggestion([{ kg: '50', reps: '8', done: true }], '6–10', 'Compound'), 'Pertahankan 50 kg dan tambah repetisi.');
 assert.equal(overloadSuggestion([{ kg: '50', reps: '10', done: true, rir: '1' }], '6–10', 'Compound'), 'Pertahankan 50 kg; target tercapai tetapi set sudah mendekati batas.');
 assert.equal(overloadSuggestion([{ kg: '50', reps: '10', done: true, rir: '2' }], '6–10', 'Compound'), 'Coba 52,5 kg pada sesi berikutnya.');
+assert.deepEqual(activitySummary([{ date: '2026-10-01', finished: true }, { date: '2026-10-01', finished: true }, { date: '2026-10-07', finished: true }, { date: '2026-09-01', finished: true }], '2026-10-07'), { sessions: 3, activeDays: 2, activeWeeks: 2 });
 console.log('storage checks passed');

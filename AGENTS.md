@@ -14,7 +14,7 @@
 - `guides.js` defines global `exerciseGuides`; exercise names must match names in `app.js`.
 - `guide-ui.js` depends on globals `exerciseGuides` and `esc`, and owns guide-dialog behavior.
 - `style.css` owns all layout and responsive presentation; `images/` contains local exercise assets.
-- `sw.js` caches the app shell and exercise images for offline use. Bump its `CACHE` value when cached shell behavior changes; current cache is `lift-log-v5`.
+- `sw.js` caches the app shell and exercise images for offline use. Bump its `CACHE` value when cached shell behavior changes; current cache is `lift-log-v8`.
 
 ## Data Invariants
 

@@ -44,4 +44,10 @@ function overloadSuggestion(sets, range, category) {
   return `Pertahankan ${weight.toLocaleString('id-ID')} kg dan tambah repetisi.`;
 }
 
-if (typeof module !== 'undefined') module.exports = { normalizeDb, mergeDb, exerciseSummary, overloadSuggestion };
+function activitySummary(sessions, today) {
+  const end = new Date(today + 'T12:00:00'), start = new Date(end); start.setDate(start.getDate() - 29);
+  const finished = sessions.filter(session => session.finished && new Date(session.date + 'T12:00:00') >= start && new Date(session.date + 'T12:00:00') <= end), days = new Set(finished.map(session => session.date)), weeks = new Set([...days].map(day => { const date = new Date(day + 'T12:00:00'), monday = new Date(date); monday.setDate(date.getDate() - (date.getDay() + 6) % 7); return monday.toISOString().slice(0, 10); }));
+  return { sessions: finished.length, activeDays: days.size, activeWeeks: weeks.size };
+}
+
+if (typeof module !== 'undefined') module.exports = { normalizeDb, mergeDb, exerciseSummary, overloadSuggestion, activitySummary };
